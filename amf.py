@@ -180,7 +180,7 @@ notes:
             self.printer.info('service [%s]' % svc)
             try:
                 # import module
-                module = __import__('amf_svc_'+svc)
+                module = __import__('amf_omi_'+svc)
             except ImportError:
                 print(traceback.format_exc())
                 self.printer.error('list failed, module not installed [%s.py]' % svc)
@@ -192,7 +192,7 @@ notes:
             clist = []
             self.printer.info('service description')
             # get instance of class
-            clazz = myclass('amf_svc_'+svc, self.svclist[svc])
+            clazz = myclass('amf_omi_'+svc, self.svclist[svc])
             # get class doc string for printing dpc strings
             self.format(clist, clazz)
             # print class info
@@ -238,7 +238,7 @@ notes:
             self.printer.info('processing command - %s %s' % (svc, command))
             try:
                 # import service module
-                module = __import__('amf_svc_'+svc)
+                module = __import__('amf_omi_'+svc)
             except ImportError:
                 self.printer.error('%s failed, module not installed [%s.py]' % (command, svc))
                 status = 1
