@@ -35,18 +35,18 @@ class amf_print:
             # use json when ui flag is set
             if self.verbose or level != 'INFO':
                 vals = {'LEVEL':level, 'SVC': self.svc.upper(), 'DATA': data}
-                print json.dumps(vals)
+                print(json.dumps(vals))
         else:
             if type(data) is list:
                 # put >>> in front of listed items
                 for line in data:
-                    print '>>>\t', line
+                    print('>>>\t', line)
             else:
                 if level:
                     # print level if specified
-                    print level+':\t', data
+                    print(level+':\t', data)
                 else:
-                    print data
+                    print(data)
                 
 class amfservice:
     '''
@@ -182,7 +182,7 @@ notes:
                 # import module
                 module = __import__('amf_svc_'+svc)
             except ImportError:
-                print traceback.format_exc()
+                print(traceback.format_exc())
                 self.printer.error('list failed, module not installed [%s.py]' % svc)
                 status = 1
                 continue

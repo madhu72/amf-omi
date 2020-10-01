@@ -42,7 +42,7 @@ class sfg(amfservice):
                     if self.run(self.home+'/bin/control_extpurge.sh start',printflag=False):
                         if str(self.outbuf).find('already running') != -1:
                             print('External purge already started')
-                        elif str(self.outbut).find('External Purge started') == -1:
+                        elif str(self.outbuf).find('External Purge started') == -1:
                             print('Failed to start External Purge')
                             status = 1
                         else:
